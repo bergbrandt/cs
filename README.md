@@ -1,2 +1,2 @@
-*Computer Science in JavaScript*
+# Computer Science in JavaScript
 --------------------------------
