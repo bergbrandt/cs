@@ -7,7 +7,7 @@
     <script src="stack.js" type="text/javascript" charset="utf-8"></script>
     <script>
         window.onload = function() {
-            // Some general tests
+            // Some general stack tests
             var S = [{'foo':'bar'}, {'bar':'bat'}, {'baz':'mat'}];
             var ST = new Stack(S,5);
             console.log(ST);
@@ -32,6 +32,13 @@
             console.log(ST);
             console.log(ST.peek());
             console.log(ST.getLength());
+
+            // Stack set tests
+            var SS = generateOrderedArray(153);
+            console.log(SS);
+            var STS = new StackSet(SS,10);
+            console.log(STS);
+            
         }
     </script>
     </body>
