@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Linked List</title>
+    </head>
+    <body>
+    <script src="../../lib/js/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="linked-list.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        window.onload = function() {
+            var A = generateRandomArray(10);
+            var L = new LinkedList(A);
+            L.insert(100,'start');
+            L.insert(999,'end');
+            console.log(L);
+            console.log(L.getList());
+            console.log(L.getLength());
+        }
+    </script>
+    </body>
+</html>

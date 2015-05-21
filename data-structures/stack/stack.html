@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Stack</title>
+    </head>
+    <body>
+    <script src="../../lib/js/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="stack.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        window.onload = function() {
+            // Some general tests
+            var S = [{'foo':'bar'}, {'bar':'bat'}, {'baz':'mat'}];
+            var ST = new Stack(S,5);
+            console.log(ST);
+            ST.push(1);
+            ST.push(2);
+            ST.push(3); // Overflow
+            console.log(ST);
+            ST.pop(); // Remove
+            ST.push(3); // Add
+            console.log(ST);
+            ST.pop();
+            ST.pop();
+            ST.pop();
+            ST.pop();
+            ST.pop();
+            ST.pop(); // Underflow
+            console.log(ST);
+            ST.push(1);
+            ST.push(2);
+            ST.push(3);
+            ST.push({'stack':'this is the top'}); // This will be the final top
+            console.log(ST);
+            console.log(ST.peek());
+            console.log(ST.getLength());
+        }
+    </script>
+    </body>
+</html>
