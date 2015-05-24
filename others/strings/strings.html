@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Strings</title>
+    </head>
+    <body>
+    <script src="../../lib/js/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="strings.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        window.onload = function() {
+            
+            var str = 'abcdefghijk';
+            var str2 = 'abcdefghija';
+            console.log(str);
+            var reverse = str.reverse();
+            console.log(reverse);
+            var jumble = str.jumble();
+            console.log(jumble);
+            
+            var t1 = performance.now();
+            console.log(str.hasRepeated());
+            var t2 = performance.now();
+            console.log(str2.hasRepeated());
+            var t3 = performance.now();
+            
+            console.log(t2-t1);
+            console.log(t3-t2);
+            
+            var t4 = performance.now();
+            console.log(str.hasRepeated2());
+            var t5 = performance.now();
+            console.log(str2.hasRepeated2());
+            var t6 = performance.now();
+            
+            console.log(t5-t4);
+            console.log(t6-t5);
+            
+        }
+    </script>
+    </body>
+</html>
