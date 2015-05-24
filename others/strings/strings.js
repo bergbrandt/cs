@@ -9,9 +9,9 @@
  */
 String.prototype.reverse = function(){
     var newString = '';
-    var length = this.length;
-    for (var i = 0; i < length; i++) {
-        newString += this[length-(i+1)];
+    var n = this.length;
+    for (var i = 0; i < n; i++) {
+        newString += this.charAt(n-(i+1));
     }
     return newString;
 };
@@ -31,7 +31,7 @@ String.prototype.jumble = function(){
         rand = Math.floor((Math.random() * length));
         
         if(hash[rand] !== true) {
-            newString += this[rand];
+            newString += this.charAt(rand);
             hash[rand] = true;
         }
     }
@@ -48,7 +48,7 @@ String.prototype.hasRepeated = function(){
     var n = this.length;
     var item;
     for (var i=0; i<n; i++) {
-        item = this[i];
+        item = this.charAt(i);
         if (hash[item] === true) {
             return true;
         } else {
@@ -68,7 +68,7 @@ String.prototype.hasRepeated2 = function(){
     var n = this.length;
     var item;
     for (var i=0; i<n; i++) {
-        item = this[i];
+        item = this.charAt(i);
         if(s.indexOf(item) > -1) {
             return true;
         } else {
