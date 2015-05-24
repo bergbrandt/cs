@@ -21,7 +21,6 @@ String.prototype.reverse = function(){
  * @method jumble
  * @return {string} jumbled string
  */
-
 String.prototype.jumble = function(){
     var newString = '';
     var rand;
@@ -78,5 +77,4 @@ String.prototype.hasRepeated2 = function(){
     }
     return false;
 };
-
 
