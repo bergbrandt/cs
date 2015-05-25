@@ -10,6 +10,9 @@
             
             var str = 'abcdefghijk';
             var str2 = 'abcdefghija';
+            var str3 = 'aaaaaaaaaaa';
+            
+            
             console.log(str);
             var reverse = str.reverse();
             console.log(reverse);
@@ -22,8 +25,8 @@
             console.log(str2.hasRepeated());
             var t3 = performance.now();
             
-            console.log(t2-t1);
-            console.log(t3-t2);
+            //console.log(t2-t1);
+            //console.log(t3-t2);
             
             var t4 = performance.now();
             console.log(str.hasRepeated2());
@@ -31,8 +34,20 @@
             console.log(str2.hasRepeated2());
             var t6 = performance.now();
             
-            console.log(t5-t4);
-            console.log(t6-t5);
+            //console.log(t5-t4);
+            //console.log(t6-t5);
+            
+            console.log(str.removeRepeatedChars());
+            console.log(str2.removeRepeatedChars());
+            console.log(str3.removeRepeatedChars());
+            
+            var ana = 'mary';
+            var ana2 = 'army';
+            var ana3 = 'party'
+            
+            console.log(ana.isAnagramOf(ana2));
+            console.log(ana.isAnagramOf(ana3));
+            
             
         }
     </script>

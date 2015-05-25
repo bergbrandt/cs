@@ -47,7 +47,7 @@ String.prototype.hasRepeated = function(){
     var hash = {};
     var n = this.length;
     var item;
-    for (var i=0; i<n; i++) {
+    for (var i = 0; i < n; i++) {
         item = this.charAt(i);
         if (hash[item] === true) {
             return true;
@@ -67,7 +67,7 @@ String.prototype.hasRepeated2 = function(){
     var s = '';
     var n = this.length;
     var item;
-    for (var i=0; i<n; i++) {
+    for (var i = 0; i < n; i++) {
         item = this.charAt(i);
         if(s.indexOf(item) > -1) {
             return true;
@@ -77,4 +77,55 @@ String.prototype.hasRepeated2 = function(){
     }
     return false;
 };
+
+/**
+ * Removes repeated characters from a string. Time complexity should be O(n). Space complexity can be O(2n) in a worst case scenario.
+ * @method removeRepeatedChars
+ * return {string} without repeated chars
+ */
+String.prototype.removeRepeatedChars = function() {
+    var n = this.length;
+    hash = {};
+    var item;
+    var s ='';
+    for (var i = 0; i < n; i++) {
+        item = this.charAt(i);
+        if (hash[item] !== true) {
+            s += item;
+            hash[item] = true;
+        }
+    }
+    return s;
+}
+
+/**
+ * Tests if a string is an anagram of other.
+ * @method isAnagramOf
+ * return {boolean} 
+ */
+String.prototype.isAnagramOf = function(str) {
+    var nt = this.length;
+    var ns = str.length;
+    var ot;
+    var os;
+    
+    if (nt !== ns) {
+        return false;
+    }
+    
+    // Split strings into arrays
+    ot = this.split('');
+    os = str.split('');
+    
+    // Sort arrays and join 
+    ot = ot.sort().join('');
+    os = os.sort().join('');
+    
+    // Compare
+    if (ot === os){
+        return true;
+    } else {
+        return false;
+    }
+}
 
