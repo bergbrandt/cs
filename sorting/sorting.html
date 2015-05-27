@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Sorting</title>
+    </head>
+    <body>
+    <script src="../lib/js/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sorting.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        window.onload = function() {
+           var A = generateRandomArray(1000);
+           var B = []; 
+           var C = [];
+           var Q = [];
+           var S = [];
+
+           // Copy
+           copyFrom(A,B);
+           copyFrom(A,C);
+           copyFrom(A,Q);
+           copyFrom(A,S);
+
+           print(A);
+           print(B);
+           print(C);
+           print(Q);
+           print(S);
+
+           print('---------------------')
+
+           var t1 = performance.now();
+           A = bubbleSort(A);
+           var t2 = performance.now();
+           B = insertSort(B);
+           var t3 = performance.now();
+           C = mergeSort(C);
+           var t4 = performance.now();
+           Q = quickSort(Q);
+           var t5 = performance.now();
+           S = smartSort(S);
+           var t6 = performance.now();
+
+           print(A, t2-t1);
+           print(B, t3-t2);
+           print(C, t4-t3);
+           print(Q, t5-t4);
+           print(S, t6-t5);
+        }
+    </script>
+    </body>
+</html>
