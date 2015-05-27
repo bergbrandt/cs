@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Binary Search Tree</title>
+    </head>
+    <body>
+    <script src="../../lib/js/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="binary-search-tree.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        window.onload = function() {
+            var A = generateRandomArray(10);
+            var BST = new BinarySearchTree(A);
+            console.log(BST);
+            console.log(BST.toArray());
+            BST.print();
+            
+            print('------------------------------------------------------------------');
+            
+            var B = [{key: 10, data: 'The Awesome'}, {key: 3, data: 'The Wonderful'}, {key: 5, data: 'The Incredible'} ];
+            var BST2 = new BinarySearchTree(B);
+            console.log(BST2);
+            console.log(BST2.toArray());
+            console.log(BST2.find(10));
+            BST2.print();
+        }
+    </script>
+    </body>
+</html>
