@@ -9,13 +9,13 @@
         window.onload = function() {
 
             var t0 = performance.now();
-            console.log(fibonacciR(10));
+            var FR = fibonacciR(20);
             var t1 = performance.now();
-            console.log(fibonacciI(10));
+            var FI = fibonacciI(20);
             var t2 = performance.now();
 
-            console.log(t1-t0);
-            console.log(t2-t1);
+            print(FR, 't:',t1-t0);
+            print(FI, 't:',t2-t1);
 
         }
     </script>

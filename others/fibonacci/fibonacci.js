@@ -7,7 +7,6 @@
 var fibonacciR = function(n) {
     var fib;
     if(n === 0) { // fibonacciR(0) = 0
-        
         return 0;
     } else if (n === 1) { // fibonacciR(1) = 1;
         return 1;
