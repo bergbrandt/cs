@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Binary Search</title>
+    </head>
+    <body>
+    <script src="../../lib/js/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="binary-search.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        window.onload = function() {
+            var A = generateOrderedArray(10);
+            print(A);
+            print(binarySearch(4, A));
+            print(binarySearch(7, A));
+            print(binarySearch(11, A));
+            print('---------------------------------');
+            var B = [0, 1, 2, 5, 6, 7, 8, 9, 10, 15];
+            print(B);
+            print(binarySearch(3, B));
+            print(binarySearch(4, B));
+            print(binarySearch(7, B));
+            print(binarySearch(10, B));
+        }
+    </script>
+    </body>
+</html>
