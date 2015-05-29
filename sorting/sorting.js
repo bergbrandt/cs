@@ -92,11 +92,11 @@ var mergeSort = function(arr) {
     for (width = 1; width < n; width = 2 * width) {
         runOriginal = !runOriginal; // flip runOriginal
         for (i = 0; i < n; i = i + 2 * width) {
-            // Swapping the array on each avoids a oArr operation
+            // Swapping the array on each avoids a oArr copy operation
             if(runOriginal === true) {
-                oArr = mergeSortRun(arr, i, Math.min(i+width, n), Math.min(i+2*width, n), oArr);
+                oArr = mergeSortRun(arr, i, Math.min(i + width, n), Math.min(i + 2 * width, n), oArr);
             } else {
-                arr = mergeSortRun(oArr, i, Math.min(i+width, n), Math.min(i+2*width, n), arr);
+                arr = mergeSortRun(oArr, i, Math.min(i + width, n), Math.min(i + 2 * width, n), arr);
             }
         }
     }
@@ -119,7 +119,7 @@ var quickSort = function(arr) {
      * Chooses the pivot.
      * @function choosePivot
      * @param {number} lo is the index of the leftmost element of the subarray
-     * @param {number} is the index of the rightmost element of the subarray
+     * @param {number} hi is the index of the rightmost element of the subarray
      * @return {number} pivot index
      */
     var choosePivot = function(arr, lo, hi) {
@@ -131,7 +131,7 @@ var quickSort = function(arr) {
      * @function partitionRun
      * @param {Array}  arr is the array or sub-array to be run
      * @param {number} lo is the index of the leftmost element of the subarray
-     * @param {number} is the index of the rightmost element of the subarray (inclusive)
+     * @param {number} hi is the index of the rightmost element of the subarray (inclusive)
      * @return {number} index for the next partitions
      */
     var partitionRun = function(arr, lo, hi) {
@@ -164,7 +164,7 @@ var quickSort = function(arr) {
      * @function quickSortR
      * @param {Array}  arr is the array or sub-array to be run
      * @param {number} lo is the index of the leftmost element of the subarray
-     * @param {number} is the index of the rightmost element of the subarray (inclusive)
+     * @param {number} hi is the index of the rightmost element of the subarray (inclusive)
      */
     var quickSortR = function(arr, lo, hi) {
         var p;
