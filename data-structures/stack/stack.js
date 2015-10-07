@@ -121,6 +121,7 @@ Stack.prototype = {
         if(typeof this._max !== 'undefined' && this._length === this._max) {
             this._overflow = true;
         }
+        return this;
     },
 
     /**
@@ -146,6 +147,7 @@ Stack.prototype = {
         if(typeof this._max !== 'undefined' && this._length < this._max) {
             this._overflow = false;
         }
+        return this;
     },
 
     /**
@@ -155,7 +157,7 @@ Stack.prototype = {
      * @public
      */
     peek: function() {
-        return this._top.data || null;
+        return this._top ? this._top.data : null;
     },
 
     /**
@@ -328,6 +330,7 @@ StackSet.prototype = {
     push: function(data) {
         this._getCurrentStack().push(data);
         this._length++;
+        return this;
     },
 
     /**
@@ -338,6 +341,7 @@ StackSet.prototype = {
     pop: function() {
         this._getCurrentStack().pop();
         this._length = Math.max(this._length-1, 0);
+        return this;
     },
 
     /**

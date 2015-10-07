@@ -38,7 +38,50 @@
             console.log(SS);
             var STS = new StackSet(SS,10);
             console.log(STS);
-            
+           
+            String.prototype.isClosingCharOf = function(c) {
+                if ((c === '{' && this == '}') ||
+                    (c === '[' && this == ']') ||
+                    (c === '(' && this == ')')) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+           function validateClosure(str) {
+               var stack = new Stack();
+               var length = str.length;
+               var top;
+               var current;
+               for (var i=0; i < str.length; i++) {
+                   top = stack.peek();
+                   current = str.charAt(i);
+                   if (/[\{\[\(\)\]\}]/.test(current)) {
+                       if (current.isClosingCharOf(top) === true) {
+                           stack.pop();
+                       } else /* if (str.charAt(i).isClosingCharOf(top) === true) */ {
+                           stack.push(current);
+                       }
+                       //console.log(stack.peek());
+                   }
+               }
+               return stack.getLength() === 0 ? true : false;
+           }
+           
+           var str1 = '()[]{}';
+           console.log(str1, ': ',validateClosure(str1));
+           var str2 = '{[()]}';
+           console.log(str2, ': ',validateClosure(str2));
+           var str3 = '{([)]}';
+           console.log(str3, ': ',validateClosure(str3));
+           var str4 = '{([})]';
+           console.log(str4, ': ',validateClosure(str4));
+           var str5 = '([{';
+           console.log(str5, ': ',validateClosure(str5));
+           var str6 = '{[(x+y)-3]*5}';
+           console.log(str6, ': ',validateClosure(str6));
+           var str7 = '{[(x+y)-3]*5}}}}';
+           console.log(str7, ': ',validateClosure(str7));
         }
     </script>
     </body>
