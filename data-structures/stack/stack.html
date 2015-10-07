@@ -38,49 +38,68 @@
             console.log(SS);
             var STS = new StackSet(SS,10);
             console.log(STS);
-           
-            String.prototype.isClosingCharOf = function(c) {
-                if ((c === '{' && this == '}') ||
-                    (c === '[' && this == ']') ||
-                    (c === '(' && this == ')')) {
-                    return true;
-                } else {
-                    return false;
+            
+            var extend = function (subClass, superClass) {
+                var F = function() {};
+                F.prototype = superClass.prototype;
+                subClass.prototype = new F();
+                subClass.prototype.constructor = subClass;
+                subClass.superclass = superClass.prototype;
+                if (superClass.prototype.constructor == Object.prototype.constructor) {
+                    superClass.prototype.constructor = superClass;
                 }
             }
-           function validateClosure(str) {
-               var stack = new Stack();
-               var length = str.length;
-               var top;
-               var current;
-               for (var i=0; i < str.length; i++) {
-                   top = stack.peek();
-                   current = str.charAt(i);
-                   if (/[\{\[\(\)\]\}]/.test(current)) {
-                       if (current.isClosingCharOf(top) === true) {
-                           stack.pop();
-                       } else {
-                           stack.push(current);
+            
+            var Code = function(code){
+                this.code = code;
+            };
+            //extend(Code, String);
+            Code.prototype = {
+                constructor: Code,
+                _isClosingCharOf: function(s,e) {
+                    if ((s === '{' && e == '}') ||
+                        (s === '[' && e == ']') ||
+                        (s === '(' && e == ')')) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                 },
+                 validateClosure : function () {
+                       var str = this.code;
+                       var stack = new Stack();
+                       var length = str.length;
+                       var top;
+                       var current;
+                       for (var i=0; i < str.length; i++) {
+                           top = stack.peek();
+                           current = str.charAt(i);
+                           if (/[\{\[\(\)\]\}]/.test(current)) {
+                               if (this._isClosingCharOf(top,current) === true) {
+                                   stack.pop();
+                               } else {
+                                   stack.push(current);
+                               }
+                           }
                        }
+                       return stack.getLength() === 0 ? true : false;
                    }
-               }
-               return stack.getLength() === 0 ? true : false;
-           }
-           
-           var str1 = '()[]{}';
-           console.log(str1, ': ',validateClosure(str1));
-           var str2 = '{[()]}';
-           console.log(str2, ': ',validateClosure(str2));
-           var str3 = '{([)]}';
-           console.log(str3, ': ',validateClosure(str3));
-           var str4 = '{([})]';
-           console.log(str4, ': ',validateClosure(str4));
-           var str5 = '([{';
-           console.log(str5, ': ',validateClosure(str5));
-           var str6 = '{[(x+y)-3]*5}';
-           console.log(str6, ': ',validateClosure(str6));
-           var str7 = '{[(x+y)-3]*5}}}}';
-           console.log(str7, ': ',validateClosure(str7));
+            };
+
+           var code1 = new Code('()[]{}');
+           console.log(code1.code, ': ',code1.validateClosure());
+           var code2 = new Code('{[()]}');
+           console.log(code2.code, ': ',code2.validateClosure());
+           var code3 = new Code('{([)]}');
+           console.log(code3.code, ': ', code3.validateClosure());
+           var code4 = new Code('{([})]');
+           console.log(code4.code, ': ', code4.validateClosure());
+           var code5 = new Code('([{');
+           console.log(code5.code, ': ', code5.validateClosure());
+           var code6 = new Code('{[(x+y)-3]*5}');
+           console.log(code6.code, ': ', code6.validateClosure());
+           var code7 = new Code('{[(x+y)-3]*5}}}');
+           console.log(code7.code, ': ', code7.validateClosure());
         }
     </script>
     </body>
